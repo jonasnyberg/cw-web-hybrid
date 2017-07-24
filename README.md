@@ -2,6 +2,45 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
 
+# NOTES
+
+## STRUCTURE
+```
+src/
+	app/
+		shared/
+		tasks/
+			tasks.module.ts
+			tasks.routing.ts
+			tasks.component.ts | less | html 
+			task-list/
+				task-list.component.ts
+				task-list.component.html
+				task-list.component.less
+				task-cell/
+					task-cell.component.ts
+					task-cell.component.html
+					task-cell.component.less			
+		ng1
+			hello1
+			app.js
+	assets
+		ng1
+			css
+			img
+		css
+
+		img	
+	index.html
+```	
+
+## TO LOOK AT
+  - font prefix ci
+	- figure out less structure, to minimize copy/paste's. ex. cell component less...
+	- hash policy investigate
+	- avoid insideInspector with more granual architechture
+  - batching
+  
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
