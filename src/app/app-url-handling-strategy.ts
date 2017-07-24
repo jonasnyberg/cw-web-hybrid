@@ -5,8 +5,7 @@ export class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
     shouldProcessUrl(url: any) {
         console.log('url', url.toString());
         const next = url.toString();
-        return next.startsWith('/tasks') || next === '/';
-        // return false;
+        return next.startsWith('/hello2');
     }
 
     extract(url: any) {

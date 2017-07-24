@@ -9,7 +9,8 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        { "glob": "**/*.html", "input": "./app/ng1", "output": "./app/ng1" }
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -21,7 +22,12 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/angular/angular.js",
+        "../node_modules/angular-route/angular-route.js",
+        "app/ng1/app.js",
+        "app/ng1/hello1/hello1.controller.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

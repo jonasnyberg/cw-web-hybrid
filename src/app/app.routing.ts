@@ -1,22 +1,12 @@
 import {Routes, RouterModule}   from '@angular/router';
+import {Hello2Component} from './hello2/hello2.component';
 
 // Components
-import {NotFoundComponent} from './modules/shared/not-found/not-found.component';
-
 const appRoutes: Routes = [
-    // {
-    //     path: '',
-    //     redirectTo: '/login',
-    //     pathMatch: 'full'
-    // },
-    // {
-    //     path: '**',
-    //     component: NotFoundComponent
-    // },
-    // {
-    //     path: 'not-found',
-    //     component: NotFoundComponent
-    // }
+    {
+        path: 'hello2',
+        component: Hello2Component
+    }
 ];
 
-export const AppRouting = RouterModule.forRoot(appRoutes, {initialNavigation: true});
+export const AppRouting = RouterModule.forRoot(appRoutes, {useHash: false, initialNavigation: false});

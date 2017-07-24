@@ -1,12 +1,9 @@
 'use strict';
 
 angular
-  .module('cw', [])
-  .controller('HelloController', helloController);
+  .module('cw.controllers', [])
+  .controller('Hello1Controller', function() {
 
-HelloController.$inject = [];
-
-function helloController() {
-  var vm = this;
-  vm.title = 'hello1';
-}
+    var vm = this;
+    vm.title = 'hello1';
+});
