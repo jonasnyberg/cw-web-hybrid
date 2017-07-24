@@ -1,0 +1,255 @@
+@import "lib";
+
+.ui-datepicker {
+  background-color: @grayLighter;
+
+  th > * {
+    color: @grayDark;
+  }
+
+  .ui-state-disabled a {
+    color: @grayDark;
+  }
+
+  .ui-datepicker-prev span {
+    margin-top: -0.725rem;
+  }
+
+  .ui-datepicker-next span {
+    margin-left: -0.725em;
+    margin-top: -0.725rem;
+  }
+
+  .fa-angle-right::before {
+    content: "\f105";
+  }
+
+  .fa-angle-left::before {
+    content: "\f104";
+  }
+
+  .fa-angle-up::before {
+    content: "\f106";
+  }
+
+  .fa-angle-down::before {
+    content: "\f107";
+  }
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+  #calc > .rem(padding, @basePadding / 4);
+
+  text-align: center;
+
+  &.ui-state-active {
+    color: @blue;
+    background-color: @grayLight;
+  }
+}
+
+.ui-inputtext {
+  .caption;
+
+  padding: 0;
+  color: @blue;
+}
+
+.ui-inputtext.ui-state-focus,
+.ui-inputtext:focus {
+  box-shadow: none;
+}
+
+.ui-widget-header .ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-state-default {
+  border: none;
+}
+
+.ui-inputtext:enabled:hover {
+  border: none;
+}
+
+.ui-autocomplete.ui-widget {
+  width: 100%;
+}
+
+.ui-autocomplete-panel .ui-autocomplete-list {
+  padding: 0;
+}
+
+.ui-autocomplete-panel .ui-autocomplete-list-item {
+  margin: 0;
+  padding: 0;
+}
+
+.ui-autocomplete-panel .ui-autocomplete-list-item .app-cell-wrapper {
+  #calc > .rem(margin-right, @baseMargin * 4);
+}
+
+.ui-autocomplete-panel.ui-widget-content {
+  width: auto !important;
+}
+
+.ui-autocomplete-panel .ui-state-highlight {
+  background-color: @blue;
+}
+
+.ui-state-highlight .app-cell {
+  background-color: @blue !important;
+}
+
+.ui-state-highlight .app-cell-wrapper,
+.ui-state-highlight .app-cell-wrapper > span,
+.ui-state-highlight .app-cell-wrapper > span p {
+  color: @white !important;
+}
+
+.ui-dialog {
+  background: @lightPrimary;
+  overflow-y: initial;
+
+  .ui-dialog-titlebar {
+    line-height: 1.8;
+    font-weight: @boldFontWeight;
+    background-color: @blue;
+    color: @white;
+  }
+
+  .ui-dialog-content {
+    .modal-body {
+      max-width: 450px;
+
+      .description {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 150px;
+      }
+    }
+  }
+
+  &.ui-dialog-top {
+    .alignH();
+
+    top: 0 !important;
+
+    .ui-dialog-content {
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .ui-dialog-titlebar {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @media @notDesktop {
+      position: fixed;
+      left: 50% !important;
+      width: 100%;
+    }
+
+    @media @mobile {
+      .ui-dialog-titlebar {
+        text-align: right;
+        padding: 0;
+        line-height: 1;
+
+        .ui-dialog-title {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.ui-dialog-centering {
+    .alignC();
+
+    position: fixed;
+
+    .ui-dialog-content {
+      text-align: center;
+    }
+  }
+
+  &.ui-classic-dialog {
+    max-width: 40%;
+    min-width: 33%;
+    overflow: hidden;
+
+    .ui-dialog-titlebar {
+      .body;
+
+      background-color: @white;
+      border-bottom: 1px solid @grayLight;
+      color: @darkPrimary;
+      text-align: center;
+    }
+
+    .ui-dialog-content {
+      background-color: @grayLighter;
+      margin: 0;
+      padding: 0;
+
+      .content:first-child {
+        max-height: 330px;
+        min-height: 50px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .area-wrapper {
+        background-color: transparent;
+      }
+    }
+
+    &.is-private {
+      .ui-dialog-content {
+        background-color: @fadedYellow;
+      }
+    }
+
+    footer {
+      background-color: @white;
+      border-top: 1px solid @grayLight;
+      margin: 0;
+      width: 100%;
+    }
+
+    @media @tablet {
+      max-width: 60%;
+      min-width: 40%;
+    }
+
+    @media @mobile {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+[class^="fa-"],
+[class*=" fa-"] {
+  .ico-font;
+}
+
+.fa-close::before {
+  color: @lightPrimary;
+  content: "\f00d";
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.ui-messages-detail {
+  line-height: 1.2;
+}
+
+// TODO growl custom styling
+//.ui-growl-item-container.ui-state-highlight.ui-growl-message-error {
+//  background-color: #f44336;
+//  border-color: #f44336;
+//}

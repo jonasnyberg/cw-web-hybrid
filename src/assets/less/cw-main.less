@@ -1,0 +1,586 @@
+@import "lib";
+
+*,
+*::before,
+*::after {
+  border: 0;
+  box-sizing: border-box;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  background-color: @white;
+  color: @darkPrimary;
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent; /* prevent gray background on active elements */
+  -webkit-touch-callout: none; /* prevent call out to copy image, etc when tap to hold */
+  -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+
+  .kerning_v1;
+  .body1;
+
+  min-height: 100vh;
+  min-width: 300px;
+  overflow: hidden;
+  text-align: center;
+}
+
+h1 {
+  color: @darkPrimary;
+}
+
+h2 {
+  .titleBold;
+
+  color: @darkPrimary;
+  letter-spacing: -1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  & [class^="icon-"] {
+    #calc > .rem(margin-top, @baseFontSize * 1.2 * 0.15 * -1rem);
+
+    display: inline-block;
+    font-size: 130%;
+    vertical-align: top;
+  }
+}
+
+p {
+  .body1;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+  color: @blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+input[type="button"] {
+  cursor: pointer;
+}
+
+img {
+  display: inline-block;
+  vertical-align: top;
+}
+
+strong {
+  font-weight: @boldFontWeight;
+}
+
+hr {
+  #calc > .remPair(margin, @baseMargin, 0);
+
+  border: none;
+  border-bottom: 1px solid @darkDivider;
+  display: block;
+  height: 1px;
+  width: 100%;
+}
+
+.wrapped {
+  margin: 0 auto;
+  max-width: 700px;
+  position: relative;
+  width: 90%;
+}
+
+.app-loading {
+  .alignC;
+  .body2;
+
+  color: @darkHint;
+}
+
+.blocked {
+  overflow: hidden;
+}
+
+article.legal {
+  #calc > .rem(margin-bottom, @baseMargin * 2);
+  .body1;
+
+  display: block;
+  text-align: left;
+  overflow: auto;
+
+  h1 {
+    #calc > .remClock(padding, @basePadding * 2, 0, 0, 0);
+    .headline;
+
+    color: @darkSecondary;
+  }
+
+  h2 {
+    #calc > .remClock(margin, @baseMargin * 2, 0, @baseMargin, 0);
+    .titleBold;
+
+    color: @darkSecondary;
+  }
+
+  p {
+    #calc > .rem(margin-bottom, @baseMargin);
+    .body1;
+
+    color: @darkPrimary;
+  }
+
+  ul {
+    #calc > .rem(margin-bottom, @baseMargin);
+
+    ul {
+      #calc > .remClock(padding, @basePadding, 0, 0, @basePadding);
+
+      li {
+        list-style: outside;
+      }
+    }
+  }
+
+  li {
+    #calc > .rem(margin-bottom, @baseMargin / 2);
+    .body1;
+
+    list-style: inside;
+  }
+}
+
+@media @desktop {
+  .button-group {
+    #calc > .rem(padding-top, @basePadding * 2);
+  }
+}
+
+@media @notMobile {
+  .wrapped {
+    width: 80%;
+  }
+}
+
+// Directive sortable
+.ghost {
+  background-color: darken(@grayLight, 10%) !important;
+  border-color: transparent !important;
+  // opacity: 0.4;
+}
+
+// Directive collapsible
+.collapsible {
+  position: relative;
+
+  .trigger {
+    #calc > .remPair(padding, @basePadding / 2, 0);
+    #calc > .rem(top, 0);
+    #calc > .rem(left, @baseMargin / 4);
+
+    color: @darkSecondary;
+    position: absolute;
+
+    &[class*="icon-arrow"] {
+      font-size: 140%;
+    }
+  }
+
+  .collapsible-title {
+    #calc > .rem(padding-left, @basePadding * 2.5) !important;
+  }
+}
+
+// Directive sticky-header
+.stick {
+  #calc > .rem(padding-left, @basePadding / 2) !important;
+  .transition(padding-left 0.2s ease-in);
+
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  // top: 0;
+  width: 100%;
+  z-index: 2;
+
+  + h3 {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.un-stick {
+  display: none;
+}
+
+// TODO: This should be in /src/app/modules/landing/landing.component.less but there does not work as expected...
+.button-group {
+  #calc > .rem(padding-top, @basePadding);
+
+  text-align: right;
+
+  .app-button {
+    #calc > .rem(margin-left, @baseMargin / 4);
+    #calc > .rem(padding, @basePadding / 2);
+    .resetButton;
+    .button;
+
+    border-radius: 5px;
+    border: 2px solid;
+    box-shadow: none;
+    position: relative;
+    transition: background-color 0.4s ease, border-color 0.2s ease, box-shadow 0.5s ease;
+    z-index: @zShareButton;
+
+    &:hover {
+      box-shadow: 0 0 0 2px @blue;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 2px @blue;
+    }
+  }
+}
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.icon-star {
+  color: @orange;
+}
+
+.ui-sortable-placeholder {
+  #calc > .rem(height, @baseSpace / 4);
+
+  background-color: @blue;
+}
+
+.empty-list,
+.empty-selection {
+  .alignC;
+  .body2;
+
+  color: @darkHint;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  width: 100%;
+}
+
+.ellipsis {
+  .ellipsis()
+}
+
+.force-block {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.details-tab {
+  #calc > .remPair(padding, @basePadding / 2, 0);
+
+  border-top: 1px solid @darkDivider;
+  box-shadow: 0 2px 2px @darkDivider;
+  display: block;
+
+  a {
+    .caption;
+    #calc > .remPair(margin, 0, @baseMargin / 4);
+    #calc > .remPair(padding, @basePadding / 4, @basePadding / 2);
+
+    border-radius: 3px;
+    display: inline-block;
+    line-height: 1;
+
+    &.active {
+      background-color: @blue;
+      color: @white;
+    }
+  }
+}
+
+.activity-footer {
+  #calc > .rem(padding, @basePadding / 2);
+
+  display: block;
+  border-top: 1px solid @darkDivider;
+  font-size: 0;
+
+  > a {
+    .small;
+    #calc > .remPair(padding, @basePadding / 6, @basePadding / 2);
+
+    border: 1px solid @blue;
+    display: inline-block;
+
+    &:last-child {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &:first-child {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &.active {
+      background-color: @blue;
+      color: @lightPrimary;
+    }
+  }
+}
+
+.flag {
+  #calc > .remPair(padding, @basePadding / 8, @basePadding / 4);
+  .small;
+
+  background-color: @gray;
+  border-radius: 4px;
+  display: inline-block;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+.flag-important {
+  background-color: fade(@valencia, 90%) !important;
+  color: @white !important;
+}
+
+.icon-task {
+  color: @grayDark;
+}
+
+.icon-task-done {
+  color: @grayDark;
+}
+
+.icon-play-status {
+  color: @green;
+}
+
+.icon-pause-status2 {
+  color: @orange;
+}
+
+.icon-cancel-status {
+  color: @cinnabar;
+
+  &.grey {
+    color: @gray;
+  }
+}
+
+.in-details {
+  #calc > .rem(padding, @basePadding);
+
+  .border {
+    border: 1px solid @darkDivider;
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+
+    &:first-child {
+      margin-right: 1%;
+    }
+  }
+
+  h5 {
+    #calc > .rem(padding, @basePadding / 2);
+
+    background-color: @grayLight;
+    color: @darkHint;
+    // text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+  }
+
+  textarea {
+    #calc > .rem(padding, @basePadding / 2);
+
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.empty-list,
+.empty-selection {
+  .alignC;
+  .body2;
+
+  color: @darkHint;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  width: 100%;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+// TODO CLEANUP ASAP!!!
+.mention {
+  color: @blue !important;
+}
+
+.phrase-list-item {
+  margin-left: 10px;
+  color: #333;
+}
+
+.phrase-quote {
+  display: inline-block;
+  color: #888;
+  border-left: 3px solid #ccc;
+  padding-left: 10px;
+}
+
+.phrase-bold {
+  font-weight: bold;
+}
+
+.phrase-highlight {
+  color: #da7090;
+  background-color: #f6f6f6;
+  border: 1px solid #e0e0e0;
+  padding: 1px 3px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.section-highlight {
+  display: block;
+  padding: 8px;
+  background-color: #fbfaf8;
+  border: 1px solid #d5d4d3;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.text-comment-edited {
+  cursor: default;
+  color: #a4a4a4;
+}
+
+a.button,
+span.button {
+  #calc > .remPair(padding, @basePadding / 4, @basePadding);
+  .button;
+  .transition(background 0.5s ease-out);
+  .transition(color 0.3s ease-out);
+
+  background: @blue;
+  border-radius: 5px;
+  border: 1px solid @blue;
+  color: @lightPrimary;
+  line-height: 1;
+  font-size: inherit !important;
+  cursor: pointer;
+
+  &:hover {
+    .transition(background 0.3s ease-in);
+    .transition(color 0.1s ease-in);
+
+    background: darken(@blue, 10%);
+    border-color: darken(@blue, 10%);
+  }
+
+  &.inverted {
+    background: transparent;
+    color: @blue;
+
+    &:hover {
+      .transition(background 0.3s ease-in);
+      .transition(color 0.1s ease-in);
+
+      background: darken(@blue, 10%);
+      color: @lightPrimary;
+      border-color: darken(@blue, 10%);
+    }
+  }
+
+  &.disabled {
+    background-color: @darkDivider;
+    color: @darkHint;
+    pointer-events: none;
+  }
+}
+
+*[contenteditable] {
+  -webkit-user-select: auto !important;
+
+  &:empty:not(:focus)::before {
+    content: attr(data-placeholder);
+    color: @darkHint;
+  }
+}
+
+.statuses {
+  &.no-sidebar {
+    #calc > .rem(margin-bottom, @baseMargin / 2);
+
+    text-align: left;
+
+    > li {
+      display: inline-block;
+      position: relative;
+    }
+  }
+}
+
+.mobile {
+  #hack1 {
+    #calc > .remPair(padding, @basePadding, @basePadding / 2);
+  }
+}
+
+/* MQ */
+@media @notDesktop {
+  .in-details {
+    #calc > .rem(padding, @basePadding /2);
+
+    .border {
+      width: 100%;
+
+      &:not(:first-child) {
+        #calc > .rem(margin-top, @baseMargin /2);
+      }
+    }
+  }
+}

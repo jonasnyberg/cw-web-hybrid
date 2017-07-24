@@ -1,0 +1,212 @@
+form {
+  input,
+  textarea {
+    -webkit-box-shadow: none;
+    .body1;
+    .placeholder(@darkHint);
+
+    #calc > .rem(margin-bottom, @baseMargin / 2);
+    #calc > .remPair(padding, 0, @basePadding / 2);
+
+    background-color: @white;
+    border: none;
+    color: @darkPrimary;
+    width: 100%;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-text-fill-color: @darkSecondary;
+      transition: color 9000s ease-out, background-color 9000s ease-in-out 0s;
+    }
+
+    &:disabled {
+      .placeholder(@darkHint);
+
+      background-color: @white;
+      color: @darkHint;
+      pointer-events: none;
+    }
+  }
+
+  input {
+    #calc > .rem(line-height, @baseLineHeight * 1.8);
+  }
+
+  textarea {
+    #calc > .rem(padding, @basePadding / 2);
+
+    height: auto;
+    resize: none;
+    vertical-align: top;
+  }
+
+  // General list
+  ul {
+    .resetList;
+    #calc > .remPair(padding, @basePadding / 2, 0);
+
+    li {
+
+      #calc > .rem(padding, @basePadding / 8);
+    }
+  }
+
+  .option {
+    #calc > .remPair(padding, @basePadding / 8, 0);
+
+    color: @darkSecondary;
+    font-size: 0;
+    position: relative;
+    white-space: nowrap;
+
+    &.unique-option {
+      padding: 0;
+    }
+
+    &.multi-lines {
+      white-space: normal;
+
+      .description {
+        #calc > .rem(line-height, @baseLineHeight);
+
+        //max-height: 500px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    }
+
+    > span {
+      .caption;
+      .placeholder(@darkHint);
+
+      display: inline-block;
+      vertical-align: top;
+      white-space: normal;
+
+      input[type="text"] {
+        #calc > .rem(line-height, @baseLineHeight);
+
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+      }
+
+      &:first-of-type {
+        #calc > .rem(margin-right, @baseMargin / 4);
+
+        margin-right: 5%;
+        text-align: right;
+        width: 40%;
+
+        .warning {
+          color: @red;
+        }
+      }
+
+      &:last-of-type {
+        color: @darkPrimary;
+        text-align: left;
+        width: 55%;
+      }
+
+      &.unique {
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+
+  hr {
+    margin: 0;
+
+    & + .border {
+      #calc > .remPair(padding, @basePadding / 2, 0);
+    }
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  font-size: inherit;
+  color: @blue;
+
+  option {
+    position: relative;
+  }
+
+  &.default {
+    color: @darkHint;
+
+    &:not(:focus):not(:target) {
+      font-weight: @lightFontWeight;
+    }
+  }
+
+  &.ellipsis,
+  &.ellipsis > option {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+textarea {
+  background-color: transparent;
+  height: auto;
+  resize: none;
+  vertical-align: top;
+}
+
+button {
+  .button(@blue);
+
+  &.button-alarm {
+    .button(@red);
+  }
+
+  &.loading {
+    animation: background-move 2s linear infinite;
+    background-image: linear-gradient(
+      -45deg,
+      @green 25%,
+      transparent 25%,
+      transparent 50%,
+      @green 50%,
+      @green 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 50px 50px;
+    color: @lightHint;
+    pointer-events: none;
+  }
+
+  &.slim {
+    #calc > .remPair(padding, @basePadding / 6, @basePadding / 6);
+  }
+}
+
+// Button motion
+@keyframes background-move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Media queries */
+@media @mobile {
+  form .option.multi-lines {
+    .description {
+      max-height: 200px;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+// Bases
+// --------------------------------------------------------------------------------
+@baseSpace:                                10;
+@baseMargin:                               @baseSpace * 2;
+@basePadding:                              @baseSpace * 2;
+@baseFontSize:                             @baseSpace * 1.4;
+@baseLineHeight:                           @baseFontSize * 1.61;
+
+// Colors
+// --------------------------------------------------------------------------------
+@cyan:                                     #50e3c1;
+@green:                                    #2ecc71;
+@fadedBlue:                                fade(@blue, 10%);
+@blue:                                     #0587ff;
+@violeta:                                  #9b59b6;
+@denim:                                    #34495e;
+
+@cyanDark:                                 #17a085;
+@persianGreen:                             #3ba990;
+@curiousBlue:                              #2980b9;
+@violetaDark:                              #8e44ad;
+@blueWhale:                                #2c3e50;
+
+@yellow:                                   #f7da64;
+@fadedYellow:                              #fff59d;
+@orange:                                   #fba026;
+@terra:                                    #eb6b56;
+@cinnabar:                                 #e25041;
+@almond:                                   #a38f84;
+@whiteSmoke:                               #efefef;
+
+@turbo:                                    #fac51c;
+@sun:                                      #f37934;
+@valencia:                                 #d14841;
+@red:                                      #b8312f;
+@ironGray:                                 #75706b;
+@iron:                                     #d1d5d8;
+
+@linkedin:                                 #0077b5;
+@facebook:                                 #3b5998;
+@twitter:                                  #00aced;
+@google:                                   #d34836;
+@reddit:                                   #ff5700;
+
+// Grays
+// --------------------------------------------------------------------------------
+@black:                                    #000;
+@grayDarker:                               darken(@white, 90%);
+@grayDark:                                 darken(@white, 85%);
+@gray:                                     darken(@white, 50%);
+@grayLight:                                darken(@white, 10%);
+@grayLighter:                              darken(@white, 5%);
+@grayLightest:                             darken(@white, 3%);
+@white:                                    #fff;
+
+// Transparency
+// --------------------------------------------------------------------------------
+@darkPrimary:                              rgba(0, 0, 0, 0.87); // Primary text
+@darkSecondary:                            rgba(0, 0, 0, 0.54); // Secondary text
+@darkHint:                                 rgba(0, 0, 0, 0.38); // Disabled text, hint text, and icons
+@darkDivider:                              rgba(0, 0, 0, 0.12); // Dividers
+
+@lightPrimary:                             rgba(255, 255, 255, 1); // Primary text
+@lightSecondary:                           rgba(255, 255, 255, 0.7); // Secondary text
+@lightHint:                                rgba(255, 255, 255, 0.3); // Disabled text, hint text, and icons
+@lightDivider:                             rgba(255, 255, 255, 0.12); // Dividers
+
+// Typography
+// --------------------------------------------------------------------------------
+@fontFallback:                             Helvetica, sans-serif, Arial;
+@baseFontFamily:                           -apple-system, 'San Francisco', @fontFallback;
+@baseFontStyle:                            normal;
+@lightFontWeight:                          300;
+@regularFontWeight:                        400;
+@boldFontWeight:                           700;
+
+// Media queries
+// --------------------------------------------------------------------------------
+@mobile:                                   ~"only screen and (max-width: 767px)";
+@tablet:                                   ~"only screen and (min-width: 768px) and (max-width: 1023px) and (orientation : landscape)";
+@desktop:                                  ~"only screen and (min-width: 1024px)";
+@notDesktop:                               ~"only screen and (max-width: 1023px)";
+@notMobile:                                ~"only screen and (min-width: 768px)";
+
+// Z-index list
+// --------------------------------------------------------------------------------
+@zAppSidebar:                              1;
+@zAppInnerSection:                         2;
+@zAppInspector:                            3;
+@zMultiSelector:                           100;
+@zAppOverlay:                              1000;
+@zAppModal:                                1001;
+@zAppPrompt:                               @zAppModal;
+@zToast:                                   1002;
+
+@zRequestInvitation:                       100;
+@zShareButton:                             110;
+@zShareBox:                                111;
+@zLoginBox:                                112;
+@zLoad:                                    701;
+@zPrompt:                                  702;
