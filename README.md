@@ -7,24 +7,25 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## STRUCTURE
 ```
 src/
-	app/
+  app/
 		shared/
 		tasks/
-			tasks.module.ts
-			tasks.routing.ts
 			tasks.component.ts | less | html 
+			tasks.module.ts
+			tasks.routing.ts *Guide says: tasks-routing.ts
+      task.service.ts
+      task.model.ts
 			task-list/
-				task-list.component.ts
-				task-list.component.html
-				task-list.component.less
+				task-list.component.ts | less | html
 				task-cell/
-					task-cell.component.ts
-					task-cell.component.html
-					task-cell.component.less			
-		ng1
-			hello1
+					task-cell.component.ts | less | html
+      task/
+        ?
+		ng1/
+			hello1/
+        ...
 			app.js
-	assets
+	assets/
 		ng1
 			css
 			img
